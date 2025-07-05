@@ -37,8 +37,10 @@ CREATE TABLE Doctor (
   Department_Id int DEFAULT NULL,
   Supervisor_Id int DEFAULT NULL,
   Address varchar(255) NOT NULL,
-  Phone_no bigint NOT NULL CHECK (LENGTH(Phone_no) = 10),
-  PRIMARY KEY (Doctor_Id)
+  Phone_no bigint NOT NULL,
+  PRIMARY KEY (Doctor_Id),
+  CONSTRAINT Doctor_chk_1 CHECK (LENGTH(Phone_no) = 10),
+  CONSTRAINT Doctor_chk_2 CHECK (Sex IN ('M', 'F'))
   -- KEY FK_Doctor_Department (Department_Id),
   -- CONSTRAINT FK_Doctor_Department FOREIGN KEY (Department_Id) REFERENCES Department (Department_Id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
@@ -127,13 +129,14 @@ CREATE TABLE Patient (
   Name varchar(255) NOT NULL,
   Sex char(1) NOT NULL,
   Blood_group varchar(255) NOT NULL,
-  Phone_no bigint NOT NULL CHECK (LENGTH(Phone_no) = 10),
+  Phone_no bigint NOT NULL,
   Insurance_Id varchar(255) NOT NULL,
   Age int NOT NULL,
   Diabetic boolean NOT NULL,
   Blood_pressure boolean NOT NULL,
   PRIMARY KEY (Patient_Id),
-  CONSTRAINT Patient_chk_1 CHECK (Sex IN ('M', 'F'))
+  CONSTRAINT Patient_chk_1 CHECK (LENGTH(Phone_no) = 10),
+  CONSTRAINT Patient_chk_2 CHECK (Sex IN ('M', 'F'))
 );
 
 INSERT INTO Patient 
@@ -451,7 +454,7 @@ DROP TABLE IF EXISTS Inventory;
 
 CREATE TABLE Inventory (
   Item_Name varchar(255) NOT NULL,
-  Supplier_Phone_No bigint NOT NULL CHECK (LENGTH(Supplier_Phone_No) = 10),
+  Supplier_Phone_No bigint NOT NULL,
   Available_Stock int NOT NULL,
   Min_Stock_Level int NOT NULL,
   Purchase_Date date NOT NULL,

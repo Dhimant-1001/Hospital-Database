@@ -677,125 +677,6 @@ def new_invoice():
         print(Fore.RED + "Failed to insert into database" + Style.RESET_ALL)
         print(">>>>>>>>>>>>>", e)
 
-
-# def new_medical_record():
-#     """
-#     Function to implement option 1
-#     """
-#     try:
-#         # Case_id = input("Enter Case_id: ")
-#         Name = input("Enter Name: ")
-#         query = "SELECT Patient_ID FROM Patient WHERE Name = '{}'".format(
-#             Name
-#         )
-
-#         cur.execute(query)
-#         con.commit()
-
-#         result = cur.fetchall()
-#         # Patient_ID = result[0]['Patient_ID']
-#         if result == ():
-#             new_patient()
-#             query = "SELECT Patient_ID FROM Patient WHERE Name = '{}'".format(
-#                 Name
-#             )
-
-#             cur.execute(query)
-#             con.commit()
-#             result = cur.fetchone()
-#             Patient_ID = result["Patient_ID"]
-
-#             # Doctor_name = input("Enter Doctor name: ")
-#             doc_name = input("Enter Doctor name: ")
-#             query = "SELECT Doctor_ID FROM Doctor WHERE Name = '{}'".format(
-#                 doc_name
-#             )
-
-#             cur.execute(query)
-#             con.commit()
-#             result = cur.fetchone()
-#             Doctor_ID = result["Doctor_ID"]
-#             Case_Since = "2023-12-03"
-#             Number_of_visits = 1
-#             Recent_visit = "2023-12-03"
-#             Next_Appointment = "2023-12-10"
-#             Status = "Active"
-#             query = "INSERT INTO Medical_Record(Patient_ID,Doctor_ID,Case_Since,Number_of_visits,Recent_visit,Next_Appointment,Status) VALUES({},{},'{}',{},'{}','{}','{}')".format(
-#                 # Case_id,
-#                 Patient_ID,
-#                 Doctor_ID,
-#                 Case_Since,
-#                 Number_of_visits,
-#                 Recent_visit,
-#                 Next_Appointment,
-#                 Status,
-#             )
-
-#             cur.execute(query)
-#             con.commit()
-
-#             query = "SELECT MAX(Case_id) FROM Medical_Record"
-
-#             cur.execute(query)
-#             con.commit()
-#             result = cur.fetchone()
-#             Case_id = result["MAX(Case_id)"]
-#             print("------------------------------------------")
-#             print("New Case with ID: ", Case_id)
-#             print("------------------------------------------")
-#             print()
-#             # print(Fore.GREEN + "Inserted Into Database" + Style.RESET_ALL)
-#         else:
-#             # result= cur.fetchone()
-#             Patient_ID = result["Patient_ID"]
-
-#             # Doctor_name = input("Enter Doctor name: ")
-#             doc_name = input("Enter Doctor name: ")
-#             query = "SELECT Doctor_ID FROM Doctor WHERE Name = '{}'".format(
-#                 doc_name
-#             )
-
-#             cur.execute(query)
-#             con.commit()
-#             result = cur.fetchone()
-#             Doctor_ID = result["Doctor_ID"]
-#             Case_Since = "2023-12-03"
-#             Number_of_visits = 1
-#             Recent_visit = "2023-12-03"
-#             Next_Appointment = "2023-12-10"
-#             Status = "Active"
-#             query = "INSERT INTO Medical_Record(Patient_ID,Doctor_ID,Case_Since,Number_of_visits,Recent_visit,Next_Appointment,Status) VALUES({},{},'{}',{},'{}','{}','{}')".format(
-#                 # Case_id,
-#                 Patient_ID,
-#                 Doctor_ID,
-#                 Case_Since,
-#                 Number_of_visits,
-#                 Recent_visit,
-#                 Next_Appointment,
-#                 Status,
-#             )
-
-#             cur.execute(query)
-#             con.commit()
-
-#             query = "SELECT MAX(Case_id) FROM Medical_Record"
-
-#             cur.execute(query)
-#             con.commit()
-#             result = cur.fetchone()
-#             Case_id = result["MAX(Case_id)"]
-#             print("------------------------------------------")
-#             print("New Case with ID: ", Case_id)
-#             print("------------------------------------------")
-
-#             # print("Inserted Into Database New Case with ID: ",Case_id)
-
-#     except Exception as e:
-#         con.rollback()
-#         print(Fore.RED + "Failed to insert into database" + Style.RESET_ALL)
-#         print(">>>>>>>>>>>>>", e)
-
-
 def new_medical_record():
     """
     Function to add a new medical record for a patient.
@@ -929,29 +810,6 @@ def new_Prescription():
         con.rollback()
         print(Fore.RED + "Failed to insert into database" + Style.RESET_ALL)
         print(">>>>>>>>>>>>>", e)
-
-
-# def new_Medical_History():
-#     """
-#     Function to implement option 1
-#     """
-#     try:
-#         Case_id = input("Enter Case_id: ")
-#         Patient_ID = input("Enter Patient_ID: ")
-#         query = "INSERT INTO Previous_Cases VALUES({},{})".format(
-#             Case_id,
-#             Patient_ID,
-#         )
-
-#         cur.execute(query)
-#         con.commit()
-#         print(Fore.GREEN + "Inserted Into Database" + Style.RESET_ALL)
-
-#     except Exception as e:
-#         con.rollback()
-#         print(Fore.RED + "Failed to insert into database" + Style.RESET_ALL)
-#         print(">>>>>>>>>>>>>", e)
-
 
 def new_Inventory():
     """
@@ -1376,15 +1234,6 @@ def hireAnEmployee():
             Paycheck,
             Department_ID,
         )
-
-        # Name     | varchar(255) | NO   |     | NULL    |       |
-        # | Speciality      | varchar(255) | NO   |     | NULL    |       |
-        # | DOB             | date         | NO   |     | NULL    |       |
-        # | Date_of_Joining | varchar(255) | NO   |     | NULL    |       |
-        # | Age             | varchar(255) | NO   |     | NULL    |       |
-        # | Designation     | varchar(255) | NO   |     | NULL    |       |
-        # | Paycheck          | int          | NO   |     | NULL    |       |
-        # | Department_ID
 
         cur.execute(query)
         con.commit()
